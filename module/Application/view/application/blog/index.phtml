@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('Welcome to %sZend Framework 2%s'), '<span class="zf-green">', '</span>') ?></h1>
+    <p>This is blog page from Application module - blog controller</p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Fixed block - blog view</h3>
+            </div>
+            <div class="panel-body">
+                <p>Hello world from Application module from view/application/blog/index.phtml</p>
+                <p><strong>Available URLs:</strong></p>
+                <ul>
+                    <li><a href="<?php echo $this->url('application', array('action' => 'index')); ?>">Application</a></li>
+                    <li><a href="<?php echo $this->url('blog/post', array('action' => 'post','postID' => 1)); ?>">Post 1</a></li>
+                    <li><a href="<?php echo $this->url('blog/post', array('action' => 'post','postID' => 2)); ?>">Post 2</a></li>
+                    <li><a href="<?php echo $this->url('blog/post', array('action' => 'post','postID' => 'somestring')); ?>">Post "incorrect"</a></li>
+                    <li><a href="<?php echo $this->url('blog/post', array('action' => 'comments','postID' => 1)); ?>">Comments Post 1</a></li>
+                    <li><a href="<?php echo $this->url('blog/post', array('action' => 'comments','postID' => 2)); ?>">Comments Post 2</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

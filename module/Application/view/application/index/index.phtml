@@ -1,0 +1,23 @@
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('Welcome to %sZend Framework 2%s'), '<span class="zf-green">', '</span>') ?></h1>
+    <p>This is homepage from Application module - index controller</p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Fixed block - index view</h3>
+            </div>
+            <div class="panel-body">
+                <p>Hello world from Application module from view/application/index/index.phtml</p>
+                <p><strong>Available URLs:</strong></p>
+                <ul>
+                    <li><a href="<?php echo $this->url('blog', array('action' => 'index')); ?>">Blog</a></li>
+                    <li><a href="<?php echo $this->url('application', array('action' => 'index')); ?>">Application</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
