@@ -12,6 +12,8 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+use Application\Models; // -tge- add namespaces for models
+
 class BlogController extends AbstractActionController // -tge- this is blog controller
 {
     // -tge- index action for more posts
@@ -23,6 +25,15 @@ class BlogController extends AbstractActionController // -tge- this is blog cont
     // -tge- post action for single post
     public function postAction()
     {
+        // -tge- classical way
+        //$pdm = new Models\PostDataMapper();
+        
+        // -tge- service manager way
+        //$pdm = $this->getServiceLocator()->get('PostDataMapper');
+
+        // -tge- factory way
+        $pim = $this->getServiceLocator()->get('PostIdentityMap');
+        
         // -tge- obtain parameter from URI
         $postID = (int)$this->getEvent()->getRouteMatch()->getParam('postID');
 

@@ -26,6 +26,24 @@ class Module
         return include __DIR__ . '/config/module.config.php';
     }
 
+    // -tge- service config for Models/PostDataMapper
+
+    public function getServiceConfig(){
+
+        // -tge- our service is invokable
+        return array(
+            'invokables' => array(
+                'PostDataMapper' => 'Application\Models\PostDataMapper',
+            ),
+            'factories' => array(
+                'PostIdentityMap' => function ($sm){
+                    $pim = new Models\PostIdentityMap($sm->get('PostDataMapper'));
+                    return $pim;
+                }
+            )
+        );
+    }
+
     public function getAutoloaderConfig()
     {
         return array(
