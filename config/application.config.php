@@ -4,7 +4,7 @@ return array(
     'modules' => array(
         'Application',
         'TgeHelloWorld', // -tge- my first module for zend2
-        'ZendDeveloperTools', // -tge- developer tools installed via composer - https://github.com/zendframework/ZendDeveloperTools
+        //'ZendDeveloperTools', // -tge- developer tools installed via composer - https://github.com/zendframework/ZendDeveloperTools
     ),
 
     // These are various options for the listeners attached to the ModuleManager
