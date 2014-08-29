@@ -17,12 +17,12 @@ return array(
             // using the path /application/:controller/:action
 
             // -tge- here is the key for our new module
-            'tgehelloworld' => array(
+            'tgepagelayout' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/tgehelloworld',
+                    'route'    => '/tgepagelayout',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'TgeHelloWorld\Controller', // -tge- and namespace
+                        '__NAMESPACE__' => 'TgePageLayout\Controller', // -tge- and namespace
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
@@ -32,7 +32,7 @@ return array(
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/tgehelloworld/[:controller[/:action]]',  // -tge- we will use in future
+                            'route'    => '/tgepagelayout/[:controller[/:action]]',  // -tge- we will use in future
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -66,7 +66,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'TgeHelloWorld\Controller\Index' => 'TgeHelloWorld\Controller\IndexController'
+            'TgePageLayout\Controller\Index' => 'TgePageLayout\Controller\IndexController'
         ),
     ),
     'view_manager' => array(
@@ -76,15 +76,10 @@ return array(
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => array(
-        
+
             // -tge- our custom view
-            'tge-hello-world/index/index' => __DIR__ . '/../view/tge-hello-world/index/index.phtml', // -tge- our new view for our module
-            
-            // -tge- these views we inherited from Application module then we dont need them now
-            
-            //'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',  // -tge- we will use generic layout in Application module
-            //'error/404'               => __DIR__ . '/../view/error/404.phtml',  // -tge- we dont need custom 404-like templates for our module
-            //'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'tge-page-layout/index/index' => __DIR__ . '/../view/tge-page-layout/index/index.phtml', // -tge- our new view for our module
+            'index/widget' => __DIR__ . '/../view/tge-page-layout/index/widget.phtml', // -tge- our new widget
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',

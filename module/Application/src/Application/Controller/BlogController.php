@@ -27,13 +27,13 @@ class BlogController extends AbstractActionController // -tge- this is blog cont
     {
         // -tge- classical way
         //$pdm = new Models\PostDataMapper();
-        
+
         // -tge- service manager way
         //$pdm = $this->getServiceLocator()->get('PostDataMapper');
 
         // -tge- factory way
         $pim = $this->getServiceLocator()->get('PostIdentityMap');
-        
+
         // -tge- obtain parameter from URI
         $postID = (int)$this->getEvent()->getRouteMatch()->getParam('postID');
 
@@ -41,7 +41,17 @@ class BlogController extends AbstractActionController // -tge- this is blog cont
         //$postID= $this->params('postID');
         //$postID = $this->params()->fromRoute('postID');
 
-        return new ViewModel();
+        // -tge- create instance of view
+        $viewObj = new ViewModel(
+
+            // -tge- assign variables into view
+            array(
+                'postID' => $postID,
+                'content' => 'some content for blog post',
+            )
+        );
+
+        return $viewObj;
     }
 
     // -tge- post action for comments for post
